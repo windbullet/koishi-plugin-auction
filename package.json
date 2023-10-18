@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-auction",
-  "description": "通用拍卖辅助插件",
-  "version": "0.0.1",
+  "description": "通用拍卖辅助插件，在群内就可以自动拍卖，支持定时结束拍卖，私聊暗拍，设置起拍价等功能，十分方便！",
+  "version": "0.3.3",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -17,5 +17,13 @@
   ],
   "peerDependencies": {
     "koishi": "^4.14.4"
+  },
+  "koishi": {
+    "service": {
+      "required": ["database"],    
+      "optional": [],       
+      "implements": []
+    },
+    "locales": ["en", "zh"]
   }
 }
