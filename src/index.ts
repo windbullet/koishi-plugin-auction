@@ -93,7 +93,7 @@ export function apply(ctx: Context, config:Config) {
         
       }
     })
-  
+
   ctx.guild().command("拍卖").subcommand(".出价 <userPrice:number>", "竞拍时出价", { checkArgCount: true }).alias("出价")
     .example("拍卖.出价 100")
     .action(async ({session}, userPrice) => {
@@ -105,13 +105,13 @@ export function apply(ctx: Context, config:Config) {
       } else {
         if (userPrice > auctionDataNow2[0].price) {
           await ctx.database.set('auctionData', {guildId: session.event.guild.id}, {
-            userName: session.event.member.name,
+            userName: session.username,
             userId: session.event.user.id,
             price: userPrice,
           })
           return `${auctionDataNow2[0].auctionItem === "商品" ? "" : "商品：" + auctionDataNow2[0].auctionItem}
 新的出价：${userPrice}
-出价者：${session.event.member.name}
+出价者：${session.username}
 出价者ID：${session.event.user.id}
 拍卖将在${auctionDataNow2[0].endTime}结束`;
         }
@@ -131,7 +131,7 @@ export function apply(ctx: Context, config:Config) {
           return "该群正在进行的拍卖不支持暗拍"
         } else if (userPrice > auctionDataNow3[0].price) {
           await ctx.database.set('auctionData', {guildId: userGuildId}, {
-            userName: session.event.user.id,
+            userName: session.username,
             userId: session.event.user.id,
             price: userPrice,
           })
