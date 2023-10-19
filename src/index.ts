@@ -120,7 +120,7 @@ export function apply(ctx: Context, config:Config) {
     })
   
   ctx.private().command("暗拍 <userPrice:number> <userGuildId:text>", "私聊暗拍", { checkArgCount: true }).alias("暗拍")
-    .example("拍卖.暗拍 100 114514(事群号) ")
+    .example("暗拍 100 114514(事群号) ")
     .action(async ({session}, userPrice, userGuildId) => {
         let auctionDataNow3 = await ctx.database.get('auctionData', {
           guildId: userGuildId,
