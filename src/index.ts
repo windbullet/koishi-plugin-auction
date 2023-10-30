@@ -23,7 +23,7 @@ export const usage = `
     暗拍 <价格> <群号>
 `
 
-export const using = ['database']
+export const inject = ['database']
 
 declare module 'koishi' {
   interface Tables {
